@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "URL Parameter Appender",
+  "version": "1.0",
+  "description": "Automatically appends URL parameters to links from specified websites.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["*://learn.microsoft.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://learn.microsoft.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "URL Parameter Appender"
+  }
+}
